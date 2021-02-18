@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'ingredients/index'
-  get 'ingredients/create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # A user can see the list of cocktails
   get 'cocktails', to: 'cocktails#index'
@@ -11,5 +9,9 @@ Rails.application.routes.draw do
   get 'cocktails/:id', to: 'cocktails#show', as: :cocktail
   # get 'cocktails/:id/edit', to: 'cocktails#edit', as: :edit_cocktail
   # patch 'cocktails/:id', to: 'cocktails#update'
-  # delete 'cocktails/:id', to: 'cocktails#destroy'
+  # Add a new dose an existing cocktail
+  post 'cocktails/:id/doses', to: 'cocktails#create'
+  get 'cocktails/:id/doses/new', to: 'cocktails#new'
+  # Delete a dose that belongs to an existing cocktail
+  delete 'cocktails/:id/doses', to: 'cocktails#destroy'
 end
