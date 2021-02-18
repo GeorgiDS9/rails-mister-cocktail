@@ -1,0 +1,7 @@
+<h3>New Cocktail</h3>
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image_url %>
+  <%= f.submit %>
+<% end %>
